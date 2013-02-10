@@ -1,0 +1,124 @@
+// Add this in your configuration file before modicon is imported
+// +font-face('modicon', 'modicon/modicon', normal, normal, true)
+
+%modicon
+  font-family: 'modicon'
+  font-style: normal
+  font-weight: normal
+  line-height: 1
+  speak: none
+  -webkit-font-smoothing: antialiased
+
+%modeset-asset
+  @extend %modicon
+  text-decoration: none
+
+
+// Text Icons
+.modicon
+  line-height: 1
+  &:before
+    @extend %modicon
+
+.modicon-crest:before
+  content: "\e000"
+  color: #00bce4
+
+.modicon-logotype:before
+  content: "\e001"
+  color: #5e5f61
+
+.modicon-trademark:before
+  content: "\e002"
+  color: #5e5f61
+
+.modicon-binary:before
+  content: "\e003"
+  color: #ddd
+
+.modicon-mountains:before
+  content: "\e004"
+  color: #00bce4
+
+.modicon-plus:before
+  content: "\e005"
+  color: #ddd
+
+
+// Mode Set logos
+.modeset-crest
+  @extend %modeset-asset
+  &:before
+    @extend .modicon-crest:before
+    font-size: 4em
+    padding: 0 0.2em 0.15em
+
+.modeset-logotype
+  @extend %modeset-asset
+  &:before
+    @extend .modicon-logotype:before
+
+.modeset-typetrade
+  @extend %modeset-asset
+  &:before, &:after
+    display: inline-block
+  &:before
+    @extend .modeset-logotype:before
+    margin-right: 4.9em
+  &:after
+    @extend .modicon-trademark:before
+    font-size: 0.75em
+    position: relative
+    top: 0
+    right: 0
+
+.modeset-logo
+  @extend %modeset-asset
+  &:before, &:after
+    display: block
+  &:before
+    @extend .modeset-crest:before
+  &:after
+    @extend .modeset-logotype:before
+
+.modeset-logotrade
+  display: inline-block
+  .modset-typetrade,
+  .modeset-crest,
+  .modeset-crest:before
+    display: block
+
+
+// Typography
+.modeset-heading:before
+  @extend %modicon
+  @extend .modicon-mountains:before
+  display: block
+  font-size: 0.5em
+  margin-bottom: 0.5em
+
+.modeset-list,
+.modeset-list ul
+  list-style: none
+  list-style-image: none
+  margin: 0
+  padding: 0
+
+.modeset-list ul
+  margin-left: 1em
+
+.modeset-list li:before
+  @extend %modicon
+  @extend .modicon-mountains:before
+  font-size: 0.75em
+  margin-right: 0.5em
+
+.modeset-list ul li:before
+  @extend .modicon-plus:before
+
+.modeset-list.modeset-list-inverted li:before
+  @extend .modicon-plus:before
+
+.modeset-list.modeset-list-inverted ul li:before
+  @extend .modicon-mountains:before
+
