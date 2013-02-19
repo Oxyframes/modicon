@@ -8,7 +8,7 @@ Include the gem out of GitHub
 
 ```ruby
 group :assets do
-  gem 'modicon', github: 'modeset/modicon'
+  gem 'modicon'
 end
 ```
 
